@@ -1,5 +1,7 @@
 package co.com.sofka.stepDefinition.pageReqRes;
 
+import co.com.sofka.models.pageReqRes.UserModel;
+import co.com.sofka.question.pageReqRes.GetUserQuestionPageReqRes;
 import co.com.sofka.stepDefinition.pagePlaceHolders.PageCommentsStepDefinitions;
 import co.com.sofka.util.ChangeCharacter;
 import io.cucumber.java.en.Given;
@@ -39,7 +41,7 @@ public class PageUsersReqRes extends Settings{
     @Then("entnces me mostrara un mensaje de ok y una lista de mis datos")
     public void entncesMeMostraraUnMensajeDeOkYUnaListaDeMisDatos() {
 
-        //Data user = new GerUserQuestionPageReqRes().answeredBy(actor).getData();
+        UserModel[] user = new GetUserQuestionPageReqRes().answeredBy(actor);
         actor.should(
                 seeThatResponse(
                         "El código de respuesta debe ser: " + HttpStatus.SC_OK,

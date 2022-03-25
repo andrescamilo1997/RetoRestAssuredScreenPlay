@@ -1,22 +1,24 @@
 package co.com.sofka.models.pageReqRes;
 
-public class Support{
-	private String text;
-	private String url;
 
-	public void setText(String text){
-		this.text = text;
-	}
 
-	public String getText(){
-		return text;
-	}
+public class Support {
+    private String url;
+    private String text;
 
-	public void setUrl(String url){
-		this.url = url;
-	}
+    public String getUrl() {
+        return url;
+    }
 
-	public String getUrl(){
-		return url;
-	}
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
 }

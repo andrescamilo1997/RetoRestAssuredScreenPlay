@@ -1,1 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="Usuarios" skipped="0" tests="2" time="7.94" timestamp="2022-03-24 11:14:22"><testcase name="llamar Datos"/><testcase name="Editar Datos"/></testsuite>
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="1" failures="0" name="Usuarios" skipped="0" tests="2" time="8.54" timestamp="2022-03-25 10:57:18"><testcase name="llamar Datos"><error type="net.serenitybdd.core.exceptions.UnrecognisedException"/><system-err>null&#13;
+com.fasterxml.jackson.databind.exc.MismatchedInputException.from(MismatchedInputException.java:59)&#13;
+com.fasterxml.jackson.databind.DeserializationContext.reportInputMismatch(DeserializationContext.java:1741)&#13;
+com.fasterxml.jackson.databind.DeserializationContext.handleUnexpectedToken(DeserializationContext.java:1515)&#13;
+com.fasterxml.jackson.databind.DeserializationContext.handleUnexpectedToken(DeserializationContext.java:1462)&#13;
+com.fasterxml.jackson.databind.deser.std.ObjectArrayDeserializer.handleNonArray(ObjectArrayDeserializer.java:343)&#13;
+com.fasterxml.jackson.databind.deser.std.ObjectArrayDeserializer.deserialize(ObjectArrayDeserializer.java:194)&#13;
+com.fasterxml.jackson.databind.deser.std.ObjectArrayDeserializer.deserialize(ObjectArrayDeserializer.java:24)&#13;
+com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:322)&#13;
+com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4675)&#13;
+com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3630)&#13;
+io.restassured.internal.path.json.mapping.JsonPathJackson2ObjectDeserializer.deserialize(JsonPathJackson2ObjectDeserializer.groovy:47)&#13;
+io.restassured.internal.mapping.Jackson2Mapper.deserialize(Jackson2Mapper.groovy:58)&#13;
+io.restassured.internal.mapping.ObjectMapping.parseWithJackson2(ObjectMapping.groovy:204)&#13;
+io.restassured.internal.mapping.ObjectMapping.deserialize(ObjectMapping.groovy:57)&#13;
+io.restassured.internal.RestAssuredResponseOptionsGroovyImpl.as(RestAssuredResponseOptionsGroovyImpl.groovy:220)&#13;
+io.restassured.internal.RestAssuredResponseOptionsImpl.as(RestAssuredResponseOptionsImpl.java:166)&#13;
+net.serenitybdd.rest.decorators.ResponseDecorated.as(ResponseDecorated.java:63)&#13;
+co.com.sofka.question.pageReqRes.GetUserQuestionPageReqRes.answeredBy(GetUserQuestionPageReqRes.java:13)&#13;
+co.com.sofka.stepDefinition.pageReqRes.PageUsersReqRes.entncesMeMostraraUnMensajeDeOkYUnaListaDeMisDatos(PageUsersReqRes.java:44)&#13;
+✽.entnces me mostrara un mensaje de ok y una lista de mis datos(file:///C:/Users/Usuario/Desktop/sofka/ProyectosAutomatizacion/RetoRestAssured/src/test/resources/features/pageReqRes/users_reqres_page.feature:12)&#13;
+</system-err></testcase><testcase name="Editar Datos"/></testsuite>

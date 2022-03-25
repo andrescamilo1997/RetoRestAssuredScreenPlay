@@ -1,49 +1,55 @@
 package co.com.sofka.models.pageReqRes;
 
-public class Data{
-	private String lastName;
-	private int id;
-	private String avatar;
-	private String firstName;
-	private String email;
 
-	public void setLastName(String lastName){
-		this.lastName = lastName;
-	}
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-	public String getLastName(){
-		return lastName;
-	}
+public class Data {
+    private Integer id;
+    private String email;
+    private String firstName;
+    private String lastName;
+    private String avatar;
 
-	public void setId(int id){
-		this.id = id;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public int getId(){
-		return id;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setAvatar(String avatar){
-		this.avatar = avatar;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public String getAvatar(){
-		return avatar;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setFirstName(String firstName){
-		this.firstName = firstName;
-	}
 
-	public String getFirstName(){
-		return firstName;
-	}
+    @JsonProperty("first_name")
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public void setEmail(String email){
-		this.email = email;
-	}
+    @JsonProperty("first_name")
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	public String getEmail(){
-		return email;
-	}
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
 }
