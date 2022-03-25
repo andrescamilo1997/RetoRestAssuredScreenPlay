@@ -2,7 +2,6 @@ package co.com.sofka.stepDefinition.pageReqRes.setting;
 
 import net.serenitybdd.screenplay.Actor;
 
-
 public class Settings {
     protected static final String BRING_JSON_FORMAT = System.getProperty("user.dir")
             + "\\src\\test\\resources\\files\\pageReqRes\\reqres_put_formar.json";

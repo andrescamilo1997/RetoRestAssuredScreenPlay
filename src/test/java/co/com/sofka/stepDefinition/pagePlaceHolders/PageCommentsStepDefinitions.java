@@ -44,7 +44,7 @@ public class PageCommentsStepDefinitions extends Settings {
                 .answeredBy(actor);
         actor.should(
                 seeThatResponse(
-                        "Las respuesta debe ser: "+ HttpStatus.SC_OK,
+                        "La respuesta debe ser: "+ HttpStatus.SC_OK,
                         validatableResponse -> validatableResponse.statusCode(HttpStatus.SC_OK)
                 ),
                 seeThat("El primer id es: ",

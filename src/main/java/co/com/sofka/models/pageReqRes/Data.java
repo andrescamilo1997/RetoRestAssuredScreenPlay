@@ -1,7 +1,9 @@
 package co.com.sofka.models.pageReqRes;
 
 
+
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 public class Data {
     private Integer id;
@@ -37,10 +39,12 @@ public class Data {
         this.firstName = firstName;
     }
 
+    @JsonProperty("last_name")
     public String getLastName() {
         return lastName;
     }
 
+    @JsonProperty("last_name")
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }

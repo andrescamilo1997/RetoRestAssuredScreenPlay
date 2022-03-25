@@ -1,10 +1,6 @@
 package co.com.sofka.stepDefinition.pagePlaceHolders.setting;
 
-import co.com.sofka.stepDefinition.pagePlaceHolders.PageCommentsStepDefinitions;
 import net.serenitybdd.screenplay.Actor;
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
-
 
 public class Settings {
     protected static final String BRING_JSON_FORMAT = System.getProperty("user.dir")
@@ -13,8 +9,5 @@ public class Settings {
     protected static final String RESOURCE = "/comments";
     protected final Actor actor = Actor.named("Tester");
     protected String bodyRequest;
-
-
-
 
 }

@@ -1,7 +1,7 @@
 package co.com.sofka.util;
 
 
-import static co.com.sofka.util.ChangeValuesEnume.*;
+import static co.com.sofka.util.ChangeValuesEnum.*;
 import static co.com.sofka.util.ReadFiles.readFile;
 
 public class ChangeCharacter {

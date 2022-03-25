@@ -1,9 +1,11 @@
 # new feature
 # Tags: optional
+
 Feature: Comentarios
   Yo como administrador
   Quiero obtener una lista de comentarios
   Para poder ver lo que opinan de mi pagina
+
   Scenario: Listar comentarios
     Given   Necesito poder ver todos los comentarios en mi pagina
     When    cuango haga la peticion

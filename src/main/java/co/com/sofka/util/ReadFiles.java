@@ -16,7 +16,7 @@ public class ReadFiles {
             while ((line = br.readLine()) != null)
                 stringBuilder.append(line + "\n");
         } catch (IOException ioException) {
-            LOGGER.info("\n\n****Hay problemas con la ruta especificada para la lectura de archivos****");
+            LOGGER.info("\n\n***Hay problemas con la ruta especificada para la lectura de archivos***");
             LOGGER.info(ioException.getMessage() + "\r\n");
             LOGGER.info(ioException);
         }
