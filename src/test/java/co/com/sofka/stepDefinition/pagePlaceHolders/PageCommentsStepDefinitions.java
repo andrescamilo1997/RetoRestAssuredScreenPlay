@@ -13,6 +13,8 @@ import org.apache.http.HttpStatus;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
+import java.util.Arrays;
+
 import static co.com.sofka.task.pagePlaceHolders.DoPetitionPost.DoPetitionPost;
 import static co.com.sofka.task.pagePlaceHolders.DoPetitionGet.usingTheResources;
 import static co.com.sofka.util.Log4jValues.LOG4J_PROPERTIES_FILE_PATH;
@@ -78,11 +80,13 @@ public class PageCommentsStepDefinitions extends Settings {
     @Then("Me da como reultado un codigo de mensaje de creado, el id asignado del comentario creado")
     public void meDaComoReultadoUnCodigoDeMensajeDeCreadoElIdAsignadoDelComentarioCreado() {
         LastResponse.received().answeredBy(actor).prettyPrint();
+
         actor.should(
                 seeThatResponse(
                         "El código de respuesta debe ser: " + HttpStatus.SC_CREATED,
                         validatableResponse -> validatableResponse.statusCode(HttpStatus.SC_CREATED)
                 )
+
         );
 
     }
