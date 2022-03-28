@@ -16,7 +16,7 @@ import co.com.sofka.stepDefinition.pageReqRes.setting.Settings;
 import org.apache.log4j.PropertyConfigurator;
 
 import static co.com.sofka.task.pageReqRes.DoPetitionGetReqRes.usingTheResources;
-import static co.com.sofka.task.pageReqRes.DoPetitionPutReqRes.DoPetitionPutReqRes;
+import static co.com.sofka.task.pageReqRes.DoPetitionPutReqRes.doPetitionPutReqRes;
 import static co.com.sofka.util.Log4jValues.LOG4J_PROPERTIES_FILE_PATH;
 import static co.com.sofka.util.Log4jValues.USER_DIR;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
@@ -26,19 +26,26 @@ import static org.hamcrest.core.IsEqual.equalTo;
 public class PageUsersReqRes extends Settings{
     private static final Logger LOGGER = Logger.getLogger(PageUsersReqRes.class);
     //GET
-
     @Given("quiero ver mi informacion registrada en la pagina")
     public void quieroVerMiInformacionRegistradaEnLaPagina() {
-        actor.whoCan(
-                CallAnApi.at(URL_BASE)
-        );
+        try {
+            actor.whoCan(
+                    CallAnApi.at(URL_BASE)
+            );
+        }catch (Exception exception){
+            LOGGER.warn(exception.getMessage());
+        }
     }
     @When("Cuando mande a llamar mis datos")
     public void cuandoMandeALlamarMisDatos() {
-        actor.attemptsTo(
-                usingTheResources()
-                        .usingTheResources(RESOURCE)
-        );
+        try {
+            actor.attemptsTo(
+                    usingTheResources()
+                            .usingTheResources(RESOURCE)
+            );
+        }catch (Exception exception){
+            LOGGER.warn(exception.getMessage());
+        }
     }
     @Then("entnces me mostrara un mensaje de ok y una lista de mis datos")
     public void entncesMeMostraraUnMensajeDeOkYUnaListaDeMisDatos() {
@@ -60,21 +67,30 @@ public class PageUsersReqRes extends Settings{
     //PUT
     @Given("Despues de ver mi datos me gustaria editar mi nombre a {string} y trabajo a {string}")
     public void despuesDeVerMiDatosMeGustariaEditarMiNombreASegundoNombreAYTrabajoA(String name, String Job) {
-        PropertyConfigurator.configure(USER_DIR.getValue() + LOG4J_PROPERTIES_FILE_PATH.getValue());
-        actor.can(CallAnApi.at(USER_DIR.getValue() + LOG4J_PROPERTIES_FILE_PATH.getValue()));
-        actor.can(CallAnApi.at(URL_BASE));
-        bodyRequest = new ChangeCharacter(name,Job, BRING_JSON_FORMAT).defineBodyRequestPut();
+        try {
+            PropertyConfigurator.configure(USER_DIR.getValue() + LOG4J_PROPERTIES_FILE_PATH.getValue());
+            actor.can(CallAnApi.at(USER_DIR.getValue() + LOG4J_PROPERTIES_FILE_PATH.getValue()));
+            actor.can(CallAnApi.at(URL_BASE));
+            bodyRequest = new ChangeCharacter(name,Job, BRING_JSON_FORMAT).defineBodyRequestPut();
 
-        LOGGER.info(bodyRequest);
+            LOGGER.info(bodyRequest);
+        }catch (Exception exception){
+            LOGGER.warn(exception.getMessage());
+        }
+
     }
 
     @When("Haga la peticion de cambio")
     public void hagaLaPeticionDeCambio() {
-        actor.attemptsTo(
-                DoPetitionPutReqRes()
-                        .usingTheResource(RESOURCE)
-                        .andBodyRequest(bodyRequest)
-        );
+        try {
+            actor.attemptsTo(
+                    doPetitionPutReqRes()
+                            .usingTheResource(RESOURCE)
+                            .andBodyRequest(bodyRequest)
+            );
+        }catch (Exception exception){
+            LOGGER.warn(exception.getMessage());
+        }
     }
     @Then("Entonces me saldra un mensaje de ok, y la lista de mis datos")
     public void entoncesMeSaldraUnMensajeDeOkYLaListaDeMisDatos() {

@@ -1,1 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="Comentarios" skipped="0" tests="2" time="42.08" timestamp="2022-03-25 02:04:46"><testcase name="Listar comentarios"/><testcase name="Agregar los comentarios"/></testsuite>
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="Comentarios" skipped="0" tests="2" time="7.12" timestamp="2022-03-27 08:20:54"><testcase name="Listar comentarios"/><testcase name="Agregar los comentarios"/></testsuite>

@@ -5,35 +5,35 @@ import static co.com.sofka.util.ChangeValuesEnum.*;
 import static co.com.sofka.util.ReadFiles.readFile;
 
 public class ChangeCharacter {
-    private static String name;
-    private static String email;
-    private static String body;
-    private static String Job;
-    private static String BRING_JSON_FORMAT;
+    private final String name;
+    private String email;
+    private String body;
+    private String job;
+    private final String bringJsonFormat;
 
     public  ChangeCharacter(String name, String email, String body, String bringJsonFormat) {
         this.name = name;
         this.email = email;
         this.body = body;
-        this.BRING_JSON_FORMAT = bringJsonFormat;
+        this.bringJsonFormat = bringJsonFormat;
     }
 
-    public  ChangeCharacter(String name, String Job, String bringJsonFormat) {
+    public  ChangeCharacter(String name, String job, String bringJsonFormat) {
         this.name = name;
-        this.Job = Job;
-        this.BRING_JSON_FORMAT = bringJsonFormat;
+        this.job = job;
+        this.bringJsonFormat = bringJsonFormat;
     }
 
     public String defineBodyRequest(){
-        return readFile(BRING_JSON_FORMAT)
+        return readFile(bringJsonFormat)
                 .replace(NAME.getValue(), name)
                 .replace(EMAIL.getValue(), email)
                 .replace(BODY.getValue(), body);
     }
     public String defineBodyRequestPut(){
-        return readFile(BRING_JSON_FORMAT)
+        return readFile(bringJsonFormat)
                 .replace(NAME.getValue(), name)
-                .replace(JOB.getValue(), Job);
+                .replace(JOB.getValue(), job);
     }
 
 

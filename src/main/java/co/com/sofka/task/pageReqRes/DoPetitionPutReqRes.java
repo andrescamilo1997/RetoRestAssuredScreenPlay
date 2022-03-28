@@ -32,7 +32,7 @@ public class DoPetitionPutReqRes implements Task {
 
     }
 
-    public static DoPetitionPutReqRes DoPetitionPutReqRes(){
+    public static DoPetitionPutReqRes doPetitionPutReqRes(){
         return new DoPetitionPutReqRes();
     }
 }

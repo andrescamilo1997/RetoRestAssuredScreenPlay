@@ -13,8 +13,6 @@ import org.apache.http.HttpStatus;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
-import java.util.Arrays;
-
 import static co.com.sofka.task.pagePlaceHolders.DoPetitionPost.DoPetitionPost;
 import static co.com.sofka.task.pagePlaceHolders.DoPetitionGet.usingTheResources;
 import static co.com.sofka.util.Log4jValues.LOG4J_PROPERTIES_FILE_PATH;
@@ -28,16 +26,26 @@ public class PageCommentsStepDefinitions extends Settings {
     //GET
     @Given("Necesito poder ver todos los comentarios en mi pagina")
     public void necesitoPoderVerTodosLosComentariosEnMiPagina() {
-        actor.whoCan(
-                CallAnApi.at(URL_BASE)
-        );
+        try {
+            actor.whoCan(
+                    CallAnApi.at(URL_BASE)
+            );
+        }catch (Exception exception){
+            LOGGER.warn(exception.getMessage());
+        }
+
     }
 
     @When("cuango haga la peticion")
     public void cuangoHagaLaPeticion() {
-        actor.attemptsTo(
-                usingTheResources().usingTheResources(RESOURCE)
-        );
+        try {
+            actor.attemptsTo(
+                    usingTheResources().usingTheResources(RESOURCE)
+            );
+        }catch (Exception exception){
+            LOGGER.warn(exception.getMessage());
+        }
+
     }
 
     @Then("Me da como reultado un codigo de mensaje de OK, una lista en la que puedan verse los comentarios")
@@ -60,21 +68,28 @@ public class PageCommentsStepDefinitions extends Settings {
     //POST
     @Given("Como usuario me gustaria pode agregar un comentario el cual tendra {string} {string} {string}")
     public void comoUsuarioMeGustariaPodeAgregarUnComentarioElCualTendra(String name, String email, String body) {
-        PropertyConfigurator.configure(USER_DIR.getValue() + LOG4J_PROPERTIES_FILE_PATH.getValue());
-        actor.can(CallAnApi.at(USER_DIR.getValue() + LOG4J_PROPERTIES_FILE_PATH.getValue()));
-        actor.can(CallAnApi.at(URL_BASE));
-        bodyRequest = new ChangeCharacter(name,email,body, BRING_JSON_FORMAT).defineBodyRequest();
-
-        LOGGER.info(bodyRequest);
+        try {
+            PropertyConfigurator.configure(USER_DIR.getValue() + LOG4J_PROPERTIES_FILE_PATH.getValue());
+            actor.can(CallAnApi.at(USER_DIR.getValue() + LOG4J_PROPERTIES_FILE_PATH.getValue()));
+            actor.can(CallAnApi.at(URL_BASE));
+            bodyRequest = new ChangeCharacter(name,email,body, BRING_JSON_FORMAT).defineBodyRequest();
+            LOGGER.info(bodyRequest);
+        }catch (Exception exception){
+            LOGGER.warn(exception.getMessage());
+        }
     }
 
     @When("cuando haga la peticion")
     public void cuandoHagaLaPeticion() {
-        actor.attemptsTo(
-                DoPetitionPost()
-                        .usingTheResource(RESOURCE)
-                        .andBodyRequest(bodyRequest)
-        );
+        try {
+            actor.attemptsTo(
+                    DoPetitionPost()
+                            .usingTheResource(RESOURCE)
+                            .andBodyRequest(bodyRequest)
+            );
+        }catch (Exception exception){
+            LOGGER.warn(exception.getMessage());
+        }
     }
 
     @Then("Me da como reultado un codigo de mensaje de creado, el id asignado del comentario creado")
